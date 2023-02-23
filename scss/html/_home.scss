@@ -1,0 +1,231 @@
+@import "./variables/vars";
+@import "./variables/mixin";
+@import "./variables/extend";
+
+/* NESTING EN PAGE DE HOME */
+
+/* BODY HOME */
+
+.home-body{
+    position: absolute;
+}
+
+/* HEADER HOME */
+
+
+header{
+    @include grid(100%, 140px, grid, 1fr 1fr);
+}
+
+header .header-icons-container{
+    width: 100%;
+    height: 50px;
+    display: grid;
+    background-color: $color-principal;
+}
+
+header .header-icons-container .icons{
+    width: 300px;
+    height: auto;
+    display: flex;
+    justify-items: flex-end;
+    align-items: center;
+    justify-content: space-between;
+    justify-self:end;
+    margin-right: 50px;
+    color: $color-secundario;      
+}
+
+header .icons a i{
+    color: $color-secundario;
+}
+
+nav{
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    height: 90px;
+}
+
+nav .nav-logo-container{
+    margin-left: 50px;
+}
+
+nav .nav-logo-container img{
+    width:220px;
+    margin-top: 10px;
+}
+
+/* MAIN HOME */
+
+.home-main{
+    display: grid;
+    grid-template-columns: 1fr 4fr 1fr;
+    height: 100%;
+    background-image: url("/assets/fotoindex.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.home-main section{
+    display: grid;
+    grid-column: 2;
+    justify-items: center;
+    align-items: center;
+    height: 350px;
+    margin-top: 80px;
+}
+
+.home-main-text{
+    @extend %bordes;
+}
+
+.home-main-button{
+    width: 110px;
+    height: 50px;    
+    background-color: $color-principal;
+    border-radius: 12px;
+    box-shadow: 2px 2px 2px $color-secundario;
+    border: none;
+}
+
+
+.home-main-button a{
+    font-size: 15px;
+    font-weight: 550;
+    text-align: center;
+    padding: 15px;
+    text-decoration: none;
+    display: flex;
+    color: $color-secundario;
+}
+
+
+/* FOOTER HOME */
+
+footer {
+    display: flex;
+    width: 100%;
+    height: 150px;
+    background-color: $color-principal;
+}
+
+footer section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+}
+
+.left ul {
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1.8rem;
+    list-style: none;
+}
+
+.left li {
+    margin: 10px 0;
+}
+
+.left a {
+    text-decoration: none;
+    color: $color-secundario;
+}
+
+.right a{
+    color: $color-secundario;
+    width: 5px;  
+    text-decoration: none; 
+}
+
+
+/* Mobile devices */
+@media (max-width: 768px) {
+    /* BODY HOME */
+    .home-body{
+      position: relative;
+    }
+  
+    /* HEADER HOME */
+    header{
+      @include grid(100%, 100px, grid, 1fr);
+    }
+  
+    header .header-icons-container{
+      height: 40px;
+    }
+  
+    header .header-icons-container .icons{
+      width: 200px;
+      margin-right: 20px;
+    }
+  
+    nav{
+      display: none;
+    }
+  
+    /* MAIN HOME */
+    .home-main{
+      grid-template-columns: 1fr;
+      background-position: top;
+      margin-top: 60px;
+    }
+  
+    .home-main section{
+      margin-top: 30px;
+    }
+  
+    /* FOOTER HOME */
+    footer {
+      flex-direction: column;
+      height: auto;
+    }
+  
+    footer section {
+      width: 100%;
+      margin: 10px 0;
+      text-align: center;
+    }
+  }
+  
+  /* Tablets and desktops */
+  @media (min-width: 769px) {
+    /* HEADER HOME */
+    header{
+      @include grid(100%, 140px, grid, 1fr 1fr);
+    }
+  
+    header .header-icons-container{
+      height: 50px;
+    }
+  
+    header .header-icons-container .icons{
+      width: 300px;
+      margin-right: 50px;
+    }
+  
+    nav{
+      display: grid;
+    }
+  
+    /* MAIN HOME */
+    .home-main{
+      grid-template-columns: 1fr 4fr 1fr;
+      background-position: center;
+      margin-top: 80px;
+    }
+  
+    .home-main section{
+      margin-top: 80px;
+    }
+  
+    /* FOOTER HOME */
+    footer {
+      flex-direction: row;
+    }
+  
+    footer section {
+      width: 50%;
+    }
+ }
